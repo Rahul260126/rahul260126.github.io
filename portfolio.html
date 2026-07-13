@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ignacio Sánchez</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #2b6cb0;
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: white;
+            padding: 1.5rem 10%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        nav a {
+            margin-left: 1.5rem;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 10%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e2e8f0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Estilos de las tarjetas del Portfolio */
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        @media (min-width: 768px) {
+            .project-card {
+                flex-direction: row;
+            }
+            /* Alternar el orden en pantallas grandes para darle dinamismo */
+            .project-card:nth-child(even) .project-content {
+                order: 1;
+            }
+            .project-card:nth-child(even) .project-visual {
+                order: 2;
+            }
+        }
+
+        .project-visual {
+            flex: 1;
+            background-color: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            min-height: 300px;
+        }
+        .project-visual img {
+            max-width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        /* Estilo para el contenedor del vídeo de YouTube */
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16/9;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-content {
+            flex: 1;
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .project-tag {
+            display: inline-block;
+            background-color: #ebf8ff;
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+        .project-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        .project-text {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+        .confidential-note {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
+            padding: 1rem;
+            font-size: 0.95rem;
+            color: #9c4221;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+        }
+        
+        /* Botón YouTube */
+        .btn-youtube {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            align-self: flex-start;
+            transition: background-color 0.2s;
+        }
+        .btn-youtube:hover {
+            background-color: #c53030;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Ignacio Sánchez</a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="trayectoria.html">Trayectoria</a>
+            <a href="habilidades.html">Habilidades</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Portfolio de Proyectos</h1>
+        <p>El análisis y la estrategia se miden por su impacto en la realidad. Aquí presento una selección de proyectos prácticos que demuestran mi capacidad para analizar, comunicar y diseñar campañas.</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Proyecto 1: Campaña Cs -->
+        <div class="project-card">
+            <div class="project-visual">
+                <img src="logo-cs.jpeg" alt="Logotipo Ciudadanos" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display:none; color: #718096; font-size: 1.2rem; text-align: center;">Ciudadanos Ceutí<br>(Sube tu imagen 'logo-cs.jpeg')</div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Estrategia Electoral</span>
+                <h2 class="project-title">Supervivencia política: Campaña municipal 2023</h2>
+                <p class="project-text"><strong>El reto:</strong> diseño y dirección de la campaña electoral para Cs Ceutí en un contexto político regional y nacional de máxima adversidad y polarización.</p>
+                <p class="project-text"><strong>El resultado:</strong> gracias a una campaña hiperlocalizada, centrada en el candidato y en las problemáticas reales del municipio, logramos el objetivo de la representación institucional, consiguiendo mantener la que fue la única concejalía de la formación en toda la Región de Murcia.</p>
+            </div>
+        </div>
+
+        <!-- Proyecto 2: Máster UMU -->
+        <div class="project-card">
+            <div class="project-visual">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/wJ-4jXkUQp8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Comunicación Institucional</span>
+                <h2 class="project-title">Rebranding y captación: Máster en Análisis Político Aplicado</h2>
+                <p class="project-text"><strong>Vídeo promocional:</strong> creación, guionización y edición de la pieza audiovisual principal para la captación de alumnos. Optimizando los recursos disponibles, logramos un vídeo dinámico que fue clave para batir el récord histórico de preinscripciones del máster.</p>
+                <p class="project-text"><strong>Identidad visual:</strong> rediseño y modernización del logotipo corporativo, partiendo de la imagen de años anteriores para adaptarla a los nuevos lenguajes digitales sin perder su peso institucional.</p>
+            </div>
+        </div>
+
+        <!-- Proyecto 3: Canal YouTube -->
+        <div class="project-card">
+            <div class="project-content" style="order: 1;">
+                <span class="project-tag">Divulgación y RRSS</span>
+                <h2 class="project-title">Creación de comunidad: Historia y Política</h2>
+                <p class="project-text"><strong>El proyecto:</strong> diseño, edición y gestión de un canal de YouTube enfocado en la divulgación accesible y rigurosa de historia y ciencia política.</p>
+                <p class="project-text"><strong>El impacto:</strong> creación de una comunidad sólida que permitió alcanzar la monetización del canal, logrando que varios de los vídeos superasen la barrera de las 50.000 visualizaciones gracias al trabajo de posicionamiento (SEO), retención de audiencia y diseño visual de miniaturas.</p>
+                <a href="https://www.youtube.com/@Historia-Politica" target="_blank" class="btn-youtube">▶ Visitar Canal de YouTube</a>
+            </div>
+            <div class="project-visual" style="order: 2; background-color: #2d3748; color: white; text-align: center;">
+                <div>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Historia y Política</h3>
+                    <p style="color: #a0aec0; margin-top: 0;">Más de 50.000 visualizaciones</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto 4: QGIS / Cartografía -->
+        <div class="project-card">
+            <div class="project-visual" style="background-color: #ebf8ff;">
+                <!-- Icono representativo de mapa usando CSS simple -->
+                <div style="font-size: 5rem; line-height: 1;">🗺️</div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Análisis Sociodemográfico (SIG)</span>
+                <h2 class="project-title">Inteligencia territorial y cartografía electoral</h2>
+                <p class="project-text"><strong>El proyecto:</strong> elaboración de atlas municipales y mapas de calor (mediante QGIS) cruzando datos de secciones censales, variables sociodemográficas y resultados históricos.</p>
+                <p class="project-text"><strong>El valor:</strong> traducir bases de datos complejas en mapas visuales que permiten a los equipos de campaña saber exactamente dónde están sus votantes, dónde hay margen de crecimiento y qué zonas requieren intervención inmediata.</p>
+                <div class="confidential-note">
+                    <strong>Nota metodológica:</strong> por acuerdos de confidencialidad y estricta ética profesional respecto a las prácticas estratégicas realizadas, no se publican en abierto los atlas, datos y documentos originales desarrollados para la formación política.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
