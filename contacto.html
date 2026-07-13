@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Ignacio Sánchez</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --accent-color: #2b6cb0;
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: white;
+            padding: 1.5rem 10%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        nav a {
+            margin-left: 1.5rem;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 10%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e2e8f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+            flex-grow: 1;
+        }
+        
+        /* Tarjeta de Contacto */
+        .contact-card {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+        .contact-card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .contact-card p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botones de Contacto */
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        @media (min-width: 600px) {
+            .contact-methods {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            max-width: 250px;
+        }
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .btn-contact svg {
+            margin-right: 0.8rem;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Colores específicos de los botones */
+        .btn-email {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        .btn-email:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-linkedin {
+            background-color: white;
+            color: #0077b5;
+            border: 2px solid #0077b5;
+        }
+        .btn-linkedin:hover {
+            background-color: #0077b5;
+            color: white;
+        }
+
+        /* Pie de página sencillo */
+        footer {
+            background-color: white;
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Ignacio Sánchez</a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="trayectoria.html">Trayectoria</a>
+            <a href="habilidades.html">Habilidades</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Hablemos</h1>
+        <p>¿Buscas un perfil que entienda los datos, conozca el terreno estratégico y sepa comunicarlo de forma efectiva?</p>
+    </div>
+
+    <div class="container">
+        <div class="contact-card">
+            <h2>Ponte en contacto conmigo</h2>
+            <p>Ya sea para una oportunidad profesional, una consulta sobre análisis sociodemográfico y estrategia política, o simplemente para intercambiar ideas, estaré encantado de escucharte.</p>
+            
+            <div class="contact-methods">
+                <!-- Botón de Email -->
+                <a href="mailto:ignaciosanchezpalazon@gmail.com" class="btn-contact btn-email">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Enviar un correo
+                </a>
+
+                <!-- Botón de LinkedIn -->
+                <a href="https://www.linkedin.com/in/ignacio-s%C3%A1nchez-palaz%C3%B3n-846a24177/" target="_blank" class="btn-contact btn-linkedin">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Conectar en LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Ignacio Sánchez. Politógo e Historiador.
+    </footer>
+
+</body>
+</html>
