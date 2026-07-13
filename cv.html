@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Ignacio Sánchez</title>
+    
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --accent-crimson: #8A1538;
+            --sidebar-bg: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; 
+            color: var(--text-main);
+            line-height: 1.5;
+            font-size: 10pt;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Contenedor A4 exacto */
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: var(--bg-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            display: grid;
+            grid-template-columns: 65mm 1fr; 
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* MARCA DE AGUA (Mapa Histórico) */
+        .cv-container::after {
+            content: "";
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background-image: url('mapa-historico.jpg'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05; 
+            filter: grayscale(100%) contrast(120%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* COLUMNA IZQUIERDA (Sidebar) */
+        .sidebar {
+            background-color: rgba(248, 250, 252, 0.85); 
+            padding: 12mm 8mm;
+            border-right: 2px solid var(--accent-crimson);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img-container {
+            width: 38mm;
+            height: 38mm;
+            border-radius: 50%;
+            border: 3px solid var(--accent-crimson);
+            padding: 3px;
+            background-color: white;
+            margin-bottom: 8mm;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            width: 100%;
+            margin-bottom: 6mm;
+        }
+
+        .sidebar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--accent-crimson);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3mm;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1mm;
+            width: 100%;
+        }
+
+        .contact-list, .skill-list {
+            list-style: none;
+            width: 100%;
+        }
+
+        .contact-list li {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            margin-bottom: 2mm;
+            word-wrap: break-word;
+        }
+
+        .contact-list a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .skill-list li {
+            font-size: 9pt;
+            color: var(--text-main);
+            margin-bottom: 1.5mm;
+            font-weight: 500;
+        }
+
+        .skill-list span {
+            display: block;
+            font-size: 8pt;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* SECCIÓN DEL CÓDIGO QR */
+        .qr-section {
+            margin-top: auto; /* Empuja el QR a la parte inferior de la columna */
+            text-align: center;
+            width: 100%;
+            padding-top: 5mm;
+        }
+
+        .qr-img {
+            width: 25mm;
+            height: 25mm;
+            border: 2px solid var(--accent-crimson);
+            padding: 2px;
+            background-color: white;
+            border-radius: 4px;
+            margin-bottom: 1.5mm;
+        }
+
+        .qr-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7.5pt;
+            color: var(--accent-crimson);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        /* COLUMNA DERECHA (Principal) */
+        .main-content {
+            padding: 12mm 12mm 12mm 10mm;
+        }
+
+        .header-name {
+            margin-bottom: 6mm;
+        }
+
+        .header-name h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28pt;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 1mm;
+        }
+
+        .header-name h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--accent-crimson);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary {
+            font-size: 10pt;
+            color: var(--text-muted);
+            margin-bottom: 8mm;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--accent-crimson);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4mm;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-left: 3mm;
+        }
+
+        .item {
+            margin-bottom: 5mm;
+            page-break-inside: avoid;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1mm;
+        }
+
+        .item-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 10.5pt;
+            color: var(--text-main);
+        }
+
+        .item-company {
+            font-weight: 600;
+            color: var(--accent-crimson);
+            font-size: 9.5pt;
+        }
+
+        .item-date {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+            background-color: var(--sidebar-bg);
+            padding: 1px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .item ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 1.5mm;
+        }
+
+        .item ul li {
+            position: relative;
+            padding-left: 3.5mm;
+            margin-bottom: 1.5mm;
+            font-size: 9.5pt;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .item ul li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            top: 0.5mm;
+            color: var(--accent-crimson);
+            font-size: 5pt;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                page-break-after: avoid;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="sidebar">
+        
+        <div class="profile-img-container">
+            <img src="perfil.jpg" alt="Ignacio Sánchez" class="profile-img" onerror="this.src='https://via.placeholder.com/150/ffffff/8A1538?text=IS';">
+        </div>
+
+        <div class="sidebar-section">
+            <h3 class="sidebar-title">Contacto</h3>
+            <ul class="contact-list">
+                <li>📍 Ceutí, Región de Murcia (30562)</li>
+                <li>📱 679 97 44 53</li>
+                <li>📧 ignaciosanchezpalazon<br>@gmail.com</li>
+                <li>🌐 <a href="https://ignaciosanchezpalazon.github.io">ignaciosanchezpalazon<br>.github.io</a></li>
+                <li>🔗 <a href="https://www.linkedin.com/in/ignacio-sánchez-palazón-846a24177/">LinkedIn /ignacio-sánchez</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h3 class="sidebar-title">Software</h3>
+            <ul class="skill-list">
+                <li>QGIS <span>Cartografía e Inteligencia Territorial</span></li>
+                <li>SPSS & Excel <span>Análisis cuantitativo</span></li>
+                <li>Atlas.ti <span>Análisis cualitativo y discurso</span></li>
+                <li>Wondershare Filmora <span>Edición audiovisual</span></li>
+                <li>IA Generativa <span>Optimización y estructuración</span></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h3 class="sidebar-title">Idiomas</h3>
+            <ul class="skill-list">
+                <li>Inglés <span>Nivel C1 (Certificación Trinity)</span></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h3 class="sidebar-title">Competencias Clave</h3>
+            <ul class="skill-list">
+                <li>Estrategia Electoral</li>
+                <li>Administración Presupuestaria</li>
+                <li>Liderazgo y Equipos</li>
+                <li>Resolución de Conflictos</li>
+                <li>Oratoria Persuasiva</li>
+            </ul>
+        </div>
+
+        <!-- SECCIÓN DEL CÓDIGO QR -->
+        <div class="qr-section">
+            <img src="qr-web.png" alt="QR Portfolio Web" class="qr-img" onerror="this.src='https://via.placeholder.com/100/ffffff/8A1538?text=QR';">
+            <div class="qr-text">Portfolio Web</div>
+        </div>
+
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div class="main-content">
+        
+        <div class="header-name">
+            <h1>IGNACIO<br>SÁNCHEZ</h1>
+            <h2>Analista Político y Asesor Estratégico</h2>
+        </div>
+
+        <p class="summary">
+            Profesional con sólida trayectoria en gestión ejecutiva, dirección de campañas y coordinación de equipos. Experiencia demostrada en la administración de presupuestos públicos de gran volumen, cruce de datos sociodemográficos y planificación táctica bajo escenarios de alta presión e incertidumbre. Orientado a la optimización de recursos, la resolución activa de conflictos y la implementación de estrategias basadas en la evidencia y el análisis de datos.
+        </p>
+
+        <h3 class="section-title">Experiencia Estratégica</h3>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Alumno Interno (Investigación y Branding)</span> <br>
+                    <span class="item-company">Universidad de Murcia (Dpto. Ciencia Política)</span>
+                </div>
+                <span class="item-date">10/2025 – Actual</span>
+            </div>
+            <ul>
+                <li>Desarrollo de labores de investigación sociopolítica e inteligencia estratégica.</li>
+                <li>Gestión integral de redes sociales y rediseño de la identidad visual corporativa (logotipo).</li>
+                <li>Ejecución de campaña de comunicación logrando batir el récord histórico de preinscripciones del máster.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Primer Teniente de Alcalde y Concejal de Hacienda</span> <br>
+                    <span class="item-company">Ayuntamiento de Ceutí</span>
+                </div>
+                <span class="item-date">07/2024 – 02/2025</span>
+            </div>
+            <ul>
+                <li>Responsabilidad ejecutiva en la elaboración, gestión y control de un presupuesto municipal de ~10 Millones de €.</li>
+                <li>Dirección de las carteras de Proyectos Europeos, Turismo y Desarrollo Local para dinamización económica.</li>
+                <li>Negociación política institucional para la aprobación de mociones en una corporación multipartidista.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Director de Campaña Electoral Municipal</span> <br>
+                    <span class="item-company">Ciudadanos (Ceutí)</span>
+                </div>
+                <span class="item-date">2023</span>
+            </div>
+            <ul>
+                <li>Diseño y liderazgo de la estrategia electoral en un contexto nacional de crisis de marca y máxima polarización.</li>
+                <li>Gestión legal ante la Junta Electoral de Zona, coordinando candidaturas en Molina, Mula, Ceutí y Las Torres.</li>
+                <li>Logro: Consecución de representación institucional, reteniendo la única concejalía del partido en la Región y operando como actor clave (Kingmaker) para la gobernabilidad del consistorio.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Docente y Coordinador de Secundaria</span> <br>
+                    <span class="item-company">Cooperativa de Enseñanza Luis Vives (Nonduermas)</span>
+                </div>
+                <span class="item-date">09/2020 – Actual</span>
+            </div>
+            <ul>
+                <li>Coordinación del profesorado y mediación activa para la resolución de conflictos.</li>
+                <li>*Experiencia previa destacada:* Docencia en Colegio El Planet (2019-2020), captador de fondos en Médicos Sin Fronteras (2017) y Secretario de Redacción en Revista Individualia (2014-2021).</li>
+            </ul>
+        </div>
+
+        <h3 class="section-title">Formación Académica</h3>
+        
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Doctorado y Máster en Métodos Avanzados de Investigación</span><br>
+                    <span class="item-company">Inicio Próximo Curso</span>
+                </div>
+                <span class="item-date">2026 – 2027</span>
+            </div>
+            <ul>
+                <li>Línea de investigación centrada en Comunicación Política, Campañas y Elecciones.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Máster en Análisis Político Aplicado</span><br>
+                    <span class="item-company">Universidad de Murcia (UMU)</span>
+                </div>
+                <span class="item-date">2025 – 2026</span>
+            </div>
+            <ul>
+                <li>Sobresaliente global. 4 Matrículas de Honor. TFM: Quiebra democrática de la II República.</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Grado en Ciencia Política y Gestión Pública</span><br>
+                    <span class="item-company">Universidad de Burgos (UBU)</span>
+                </div>
+                <span class="item-date">2020 – 2025</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <div>
+                    <span class="item-title">Grado en Historia | Máster Formación del Profesorado</span><br>
+                    <span class="item-company">Universidad de Murcia (UMU) | UCAM</span>
+                </div>
+                <span class="item-date">2012 – 2017</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
